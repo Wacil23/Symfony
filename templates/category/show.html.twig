@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	{% for c in category %}
+		<h1>{{c.id}}/{{c.name}}
+		</h1>
+		{% for p in program %}
+			<h3><span>{{p.id}}/</span>  {{p.title}}  </h3>
+			
+			<span>{{p.summary}}</span>
+            <a href="{{ path("program_show", { id: p.id }) }}">Voir l'affiche</a>
+		{% else %}
+			Aucune serie trouvée.
+		{% endfor %}
+	{% endfor %}
+    <a href="{{ path("category_index")}}">Retour aux categories</a>
+{% endblock %}
